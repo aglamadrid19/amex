@@ -28,7 +28,16 @@ type UseCachingFetch = (url: string) => {
  *
  */
 export const useCachingFetch: UseCachingFetch = (url) => {
-  
+  let data;
+
+  async () => {
+    const response = await fetch(url);
+    if (!response.ok) {
+      throw new Error(`Error: ${response.status}`);
+    }
+    data = await response.json();
+    sessionStorage.setItem(url, JSON.stringify(data));
+  }
 
   return {
     data: null,
