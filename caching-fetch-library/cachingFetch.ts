@@ -28,6 +28,8 @@ type UseCachingFetch = (url: string) => {
  *
  */
 export const useCachingFetch: UseCachingFetch = (url) => {
+  
+
   return {
     data: null,
     isLoading: false,
